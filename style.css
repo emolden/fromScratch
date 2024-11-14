@@ -256,6 +256,8 @@
 }
 
 @layer components {
+    /* *******FROM HERE ************************ */
+    /* this is all the header/hambuerger/navigation */
   .site-header {
     padding-block: 1rem;
   }
@@ -278,6 +280,10 @@
     }
   }
 
+  [aria-controls="primary-nav"] {
+    display: none;
+  }
+
   .primary-navigation {
     ul {
       display: flex;
@@ -290,6 +296,7 @@
     }
 
     @media (width < 760px) {
+        display: none;
         position: absolute;
         z-index: 10;
         top: 0;
@@ -313,6 +320,16 @@
         }
     }
   }
+
+  @media (width < 760px) {
+    [aria-controls="primary-nav"] {
+    display: block;
+  }
+    [aria-expanded="true"] + .primary-navigation {
+            display: block;
+        }
+  }
+  /* ***************TO HERE***************************** */
 
   .site-footer {
     text-align: center;
